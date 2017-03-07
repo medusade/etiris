@@ -31,10 +31,20 @@
 #include <sqlext.h>
 
 #if !defined(WINDOWS)
-#define NO_UNIX_WINDOWS_BOOL_TYPE
-#define NO_UNIX_WINDOWS_WCHAR_TYPE
-#define NO_UNIX_WINDOWS_ULONG_TYPE
+#define BOOL ETIRIS_BOOL
+#define WCHAR ETIRIS_WCHAR
+#define ULONG ETIRIS_ULONG
+#define PWSTR ETIRIS_PWSTR
+#define PCWSTR ETIRIS_PCWSTR
+#define LPWSTR ETIRIS_LPWSTR
+#define LPCWSTR ETIRIS_LPCWSTR
 #include "etiris/base/Base.hpp"
+#undef WCHAR
+#undef ULONG
+#undef PWSTR
+#undef PCWSTR
+#undef LPWSTR
+#undef LPCWSTR
 #endif // !defined(WINDOWS)
 
 #ifndef _ETIRIS_DB_ODBC_OBJECT_HPP
