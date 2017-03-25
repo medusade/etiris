@@ -85,6 +85,9 @@ namespace etiris {
 namespace db {
 namespace odbc {
 
+typedef nadir::arrayt<CHAR> CHAR_array;
+typedef nadir::arrayt<UCHAR> UCHAR_array;
+
 } // namespace odbc
 } // namespace db
 } // namespace etiris

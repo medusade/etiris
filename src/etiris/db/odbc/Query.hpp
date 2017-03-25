@@ -99,9 +99,8 @@ public:
 
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
-    long Columns() {
-        SWORD cols;
-
+    LONG Columns() {
+        SWORD cols = 0;
         retcode=SQL_SUCCESS;
         if (hstmt!=SQL_NULL_HSTMT) {
             LOG_DEBUG("SQLNumResultCols(hstmt,&cols)...");
@@ -127,6 +126,45 @@ public:
                 return TRUE;
             } else {
                 LOG_ERROR("...failed " << retcode << " on SQLColAttributes(hstmt,index,infotype,info,infomax,&infosize,&_numinfo)");
+            }
+        }
+        return FALSE;
+    }
+    BOOL TableColumns
+    (UCHAR* szTableName, USHORT cbTableName,
+     UCHAR* szColumnName = NULL, USHORT cbColumnName = 0) {
+        UCHAR* szCatalogName = NULL; USHORT cbCatalogName = 0;
+        UCHAR* szSchemaName = NULL; USHORT cbSchemaName = 0;
+        return Columns
+        (szCatalogName, cbCatalogName, szSchemaName, cbSchemaName,
+         szTableName, cbTableName, szColumnName, cbColumnName);
+    }
+    /*/
+    SQLRETURN   SQLColumns
+    (SQLHSTMT          hstmt,          //
+     SQLCHAR     FAR   *szCatalogName, // catalog name result set qualifier
+     SQLSMALLINT       cbCatalogName,  //
+     SQLCHAR     FAR   *szSchemaName,  // schema name result set qualifier
+     SQLSMALLINT       cbSchemaName,   //
+     SQLCHAR     FAR   *szTableName,   // table name result set qualifier
+     SQLSMALLINT       cbTableName,    //
+     SQLCHAR     FAR   *szColumnName,  // column name result set qualifier
+     SQLSMALLINT       cbColumnName);  //
+    /*/
+    BOOL Columns
+    (UCHAR* szCatalogName, USHORT cbCatalogName,
+     UCHAR* szSchemaName, USHORT cbSchemaName,
+     UCHAR* szTableName, USHORT cbTableName,
+     UCHAR* szColumnName, USHORT cbColumnName) {
+        retcode = SQL_SUCCESS;
+        if (hstmt != SQL_NULL_HSTMT) {
+            LOG_DEBUG("SQLColumns(hstmt, ...)...");
+            if ((retcode = SQLColumns
+                 (hstmt, szCatalogName, cbCatalogName, szSchemaName, cbSchemaName,
+                  szTableName, cbTableName, szColumnName, cbColumnName)) == SQL_SUCCESS) {
+                return TRUE;
+            } else {
+                LOG_ERROR("...failed " << retcode << " on SQLColumns(hstmt, ...)");
             }
         }
         return FALSE;

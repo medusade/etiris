@@ -13,35 +13,24 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: Base.hpp
+///   File: Logger.hpp
 ///
 /// Author: $author$
-///   Date: 2/20/2017
+///   Date: 3/8/2017
 ///////////////////////////////////////////////////////////////////////
-#ifndef _ETIRIS_BASE_BASE_HPP
-#define _ETIRIS_BASE_BASE_HPP
+#ifndef _ETIRIS_IO_LOGGER_HPP
+#define _ETIRIS_IO_LOGGER_HPP
 
-#include "nadir/base/chars.hpp"
-#include "nadir/base/array.hpp"
 #include "nadir/io/logger.hpp"
 
+#if !defined(ETERIS_LOG_ERROR)  
+#define ETERIS_LOG_ERROR LOG_ERROR
+#endif // !defined(ETERIS_LOG_ERROR)  
+
 namespace etiris {
+namespace io {
 
-typedef nadir::implement_base ImplementBase;
-typedef nadir::base Base;
+} // namespace io 
+} // namespace etiris 
 
-typedef nadir::chars_t chars_t;
-typedef nadir::tchars_t tchars_t;
-typedef nadir::wchars_t wchars_t;
-
-typedef nadir::char_string string_t;
-typedef nadir::tchar_string tstring_t;
-typedef nadir::wchar_string wstring_t;
-
-typedef nadir::char_array char_array;
-typedef nadir::tchar_array tchar_array;
-typedef nadir::wchar_array wchar_array;
-
-} // namespace etiris
-
-#endif // _ETIRIS_BASE_BASE_HPP 
+#endif // _ETIRIS_IO_LOGGER_HPP 
