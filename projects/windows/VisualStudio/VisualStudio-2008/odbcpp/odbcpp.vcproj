@@ -179,7 +179,27 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Connection.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Environment.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Main.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Object.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\..\..\src\etiris\db\ODBC.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Query.cpp"
 				>
 			</File>
 		</Filter>
@@ -189,7 +209,27 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Connection.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Environment.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Main.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Object.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\..\..\..\src\etiris\db\ODBC.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\..\..\..\src\etiris\db\odbc\Query.hpp"
 				>
 			</File>
 		</Filter>
