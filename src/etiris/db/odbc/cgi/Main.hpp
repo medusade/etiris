@@ -43,7 +43,7 @@ public:
     typedef TExtends Extends;
 
     typedef char char_t;
-    typedef etiris::string_t string_t;
+    typedef ::etiris::char_string string_t;
 
     ///////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
@@ -225,7 +225,7 @@ protected:
             if ((db_environment_.Error
                 (db_connection_, db_query_, statement_,
                  error_num_, error_, data_size, error_len_))) {
-                ETERIS_LOG_ERROR("...failed with statement = \"" << statement_ << "\" error = \"" << error_ << "\" from db_environment_.Error(...)" << ((on)?(" on "):("")) << ((on)?(on):("")));
+                LOG_ERROR("...failed with statement = \"" << statement_ << "\" error = \"" << error_ << "\" from db_environment_.Error(...)" << ((on)?(" on "):("")) << ((on)?(on):("")));
                 this->outl("...failed with statement = \"", statement_, "\" error = \"", error_, "\" from db_environment_.Error(...)", ((on)?(" on "):("")), ((on)?(on):("")), NULL);
             } else {
                 this->outl("...failed on db_environment_.Error(...)", ((on)?(" on "):("")), ((on)?(on):("")), NULL);
@@ -309,9 +309,9 @@ protected:
     data_t data_, label_, statement_, error_;
     SDWORD data_len_, error_num_, num_info_;
     SWORD label_len_, error_len_;
-    etiris::db::odbc::Environment db_environment_;
-    etiris::db::odbc::Connection db_connection_;
-    etiris::db::odbc::Query db_query_;
+    ::etiris::db::odbc::Environment db_environment_;
+    ::etiris::db::odbc::Connection db_connection_;
+    ::etiris::db::odbc::Query db_query_;
     string_t param_source_, param_table_, param_select_, param_where_, param_query_;
 };
 

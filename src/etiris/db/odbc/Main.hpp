@@ -22,13 +22,21 @@
 #define _ETIRIS_DB_ODBC_MAIN_HPP
 
 #include "etiris/db/ODBC.hpp"
+#if defined(NO_USE_NADIR_BASE)
+#include "xos/base/getopt/main.hpp"
+#else // defined(NO_USE_NADIR_BASE)
 #include "nadir/console/getopt/main.hpp"
+#endif // defined(NO_USE_NADIR_BASE)
 
 namespace etiris {
 namespace db {
 namespace odbc {
 
+#if defined(NO_USE_NADIR_BASE)
+typedef xos::base::getopt::main main_extends;
+#else // defined(NO_USE_NADIR_BASE)
 typedef nadir::console::getopt::main main_extends;
+#endif // defined(NO_USE_NADIR_BASE)
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 class _EXPORT_CLASS main: public main_extends {
@@ -44,7 +52,7 @@ public:
     }
 
     const char *sourceChars, *tableChars, *selectChars, *whereChars, *queryChars;
-    nadir::char_string queryString;
+    string queryString;
 
     Environment environment;
     Connection connection;

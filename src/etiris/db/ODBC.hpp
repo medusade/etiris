@@ -21,7 +21,11 @@
 #ifndef _ETIRIS_DB_ODBC_ODBC_HPP
 #define _ETIRIS_DB_ODBC_ODBC_HPP
 
+#if defined(NO_USE_NADIR_BASE)
+#include "xos/base/platform_build.hpp"
+#else // defined(NO_USE_NADIR_BASE)
 #include "nadir/platform/platform_build.h"
+#endif // defined(NO_USE_NADIR_BASE)
 
 #if defined(WINDOWS)
 #include "etiris/base/Base.hpp"
@@ -85,8 +89,8 @@ namespace etiris {
 namespace db {
 namespace odbc {
 
-typedef nadir::arrayt<CHAR> CHAR_array;
-typedef nadir::arrayt<UCHAR> UCHAR_array;
+typedef char_arrayt<CHAR> CHAR_array;
+typedef char_arrayt<UCHAR> UCHAR_array;
 
 } // namespace odbc
 } // namespace db

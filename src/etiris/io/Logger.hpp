@@ -21,16 +21,24 @@
 #ifndef _ETIRIS_IO_LOGGER_HPP
 #define _ETIRIS_IO_LOGGER_HPP
 
-#include "nadir/io/logger.hpp"
-
-#if !defined(ETERIS_LOG_ERROR)  
-#define ETERIS_LOG_ERROR LOG_ERROR
-#endif // !defined(ETERIS_LOG_ERROR)  
+#if defined(NO_USE_NADIR_BASE)
+#include "xos/io/logger.hpp"
 
 namespace etiris {
 namespace io {
 
 } // namespace io 
-} // namespace etiris 
+} // namespace etiris
+
+#else // defined(NO_USE_NADIR_BASE)
+#include "nadir/io/logger.hpp"
+
+namespace etiris {
+namespace io {
+
+} // namespace io 
+} // namespace etiris
+
+#endif // defined(NO_USE_NADIR_BASE)
 
 #endif // _ETIRIS_IO_LOGGER_HPP 

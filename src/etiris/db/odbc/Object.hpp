@@ -22,6 +22,7 @@
 #define _ETIRIS_DB_ODBC_OBJECT_HPP
 
 #include "etiris/db/ODBC.hpp"
+#include "etiris/io/Logger.hpp"
 
 namespace etiris {
 namespace db {

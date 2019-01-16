@@ -19,7 +19,11 @@
 ///   Date: 2/24/2017
 ///////////////////////////////////////////////////////////////////////
 #include "etiris/db/odbc/Main.hpp"
+#if defined(NO_USE_NADIR_BASE)
+#include "xos/base/main_main.cpp"
+#else // defined(NO_USE_NADIR_BASE)
 #include "nadir/console/main_main.cpp"
+#endif // defined(NO_USE_NADIR_BASE)
 
 namespace etiris {
 namespace db {
